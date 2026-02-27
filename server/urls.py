@@ -19,12 +19,15 @@ from django.urls import path , include
 from rest_framework_simplejwt.views import TokenObtainPairView
 from drf_spectacular.views import SpectacularAPIView , SpectacularSwaggerView
 
+from server.accounts.views import SignupView
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
      path('api/', include('accounts.urls')),
     path('api/login/',TokenObtainPairView.as_view()),
+    path("api/signup/", SignupView.as_view()),
    
 
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
